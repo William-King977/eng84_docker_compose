@@ -10,6 +10,9 @@ services:
       - DB_HOST=database:27017
     depends_on:
       - database
+    volumes:
+      - ./app_data:/data
+    restart: always
 
   database:
     image: mongo
@@ -17,3 +20,5 @@ services:
     ports:
       - "27017:27017"
     restart: unless-stopped
+    volumes:
+      - ./db_data:/data
