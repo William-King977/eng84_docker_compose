@@ -13,5 +13,8 @@ RUN npm install
 # Expose the port for the app
 EXPOSE 3000
 
-# Run the app
-CMD ["node", "app.js"]
+# SH file to seed the database and run the app
+RUN chmod +x /usr/src/app/entrypoint.sh
+
+# Execute the SH file
+ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
