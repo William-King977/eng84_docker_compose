@@ -1,0 +1,19 @@
+version: "3"
+services:
+  app:
+    # Build the app from the Dockerfile
+    build: .
+    container_name: node-app
+    ports:
+      - "3000:3000"
+    environment:
+      - DB_HOST=database:27017
+    depends_on:
+      - database
+
+  database:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    restart: unless-stopped

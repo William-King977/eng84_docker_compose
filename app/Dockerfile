@@ -15,6 +15,8 @@ COPY . .
 # Expose the port for the app
 EXPOSE 3000
 
+CMD ["node", "seeds/seed.js"]
+
 # Run the app
 CMD ["node", "app.js"]
 
